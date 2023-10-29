@@ -32,14 +32,19 @@ INSTALLED_APPS += [
     'django_filters',
     'corsheaders',
     'djoser',
+    'phonenumber_field',
 ]
 
 # apps
 INSTALLED_APPS += [
     'api',
     'common',
+    'users',
     'breaks',
 ]
+
+AUTH_USER_MODEL = 'users.USER'
+AUTHENTICATION_BACKENDS = ('users.backends.AuthBackend', )
 
 # after apps
 INSTALLED_APPS += [
@@ -91,6 +96,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
 }
+
 
 ###########################
 # DJANGO REST FRAMEWORK
