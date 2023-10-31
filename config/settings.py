@@ -43,9 +43,6 @@ INSTALLED_APPS += [
     'breaks',
 ]
 
-AUTH_USER_MODEL = 'users.USER'
-AUTHENTICATION_BACKENDS = ('users.backends.AuthBackend', )
-
 # after apps
 INSTALLED_APPS += [
     'drf_spectacular',
@@ -97,7 +94,6 @@ DATABASES = {
     },
 }
 
-
 ###########################
 # DJANGO REST FRAMEWORK
 ###########################
@@ -119,7 +115,6 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -136,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'users.USER'
+AUTHENTICATION_BACKENDS = ('users.backends.AuthBackend',)
 
 ######################
 # LOCALIZATION
@@ -153,7 +150,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
 ########################
 # CORS HEADERS
 ########################
@@ -162,13 +158,12 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
 CSRF_COOKIE_SECURE = False
 
-
 ######################
 # DRF SPECTACULAR
 ######################
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Call Helper',
-        'DESCRIPTION': 'Call Helper',
+    'DESCRIPTION': 'Call Helper',
     'VERSION': '1.0.0',
 
     'SERVE_PERMISSIONS': [
@@ -187,7 +182,6 @@ SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True,
     'SORT_OPERATIONS': False,
 }
-
 
 #######################
 # DJOSER
