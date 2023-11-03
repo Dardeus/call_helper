@@ -2,8 +2,6 @@ from drf_spectacular.utils import extend_schema_view, extend_schema
 
 from common.views.mixins import DictListMixin
 from organisations.models.dicts import Position
-from organisations.serializers.api.dicts import PositionListSerializer
-
 
 @extend_schema_view(
     list=extend_schema(summary='Список должностей', tags=['Словари']),
