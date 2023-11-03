@@ -42,16 +42,22 @@ class OrganisationAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'director',)
     filter_horizontal = ('employees', )
     inlines = (EmployeeInline, )
+    readonly_fields = (
+        'created_at', 'created_by', 'updated_at', 'updated_by'
+    )
 
 
 @admin.register(groups.Group)
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'manager', 'min_active')
+    list_display = ('id', 'name', 'manager',)
     list_display_links = ('id', 'name',)
     search_fields = ('name', )
     inlines = (
         MemberInline,
         ProfileBreakInline,
+    )
+    readonly_fields = (
+        'created_at', 'created_by', 'updated_at', 'updated_by'
     )
 
 
